@@ -92,7 +92,7 @@ jobs:
                 username: ${{ secrets.EC2_USERNAME }}
                 key: ${{ secrets.EC2_SSH_KEY }}
                 source: "./scripts/*"
-                target: "/home/${{ secrets.EC2_USERNAME }}/scripts"
+                target: "/home/${{ secrets.EC2_USERNAME }}"
             - name: Execute SSH commands using SSH key
               uses: appleboy/ssh-action@v1
               with:
@@ -155,7 +155,7 @@ jobs:
                 username: ${{secrets.EMAIL_USERNAME}}
                 password: ${{secrets.EMAIL_APP_PASSWORD}}
                 subject: Deployment Notification - Techflow App CI/CD
-                to: ${{ secrets.EMAIL_RECIPIENT }}
+                to: ${{ secrets.RECIPIENT_EMAIL }}
                 from: ${{ secrets.EMAIL_USERNAME }}
                 body: |
                   Deployment Summary
@@ -167,6 +167,6 @@ jobs:
 
                   Application URL: http://${{ env.EC2_HOST }}:5000
 
-                  View run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+                  View Workflow Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
                 
