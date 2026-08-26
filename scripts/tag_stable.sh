@@ -12,7 +12,7 @@ fi
 
 CURRENT_IMAGE=$(docker inspect --format='{{.Image}}' "$CONTAINER_NAME")
 
-if [ -z "$CURRENT_IMAGE" ] then
+if [ -z "$CURRENT_IMAGE" ]; then
     echo "ERROR: Could not determine image for running container '$CONTAINER_NAME'."
     exit 1
 fi
