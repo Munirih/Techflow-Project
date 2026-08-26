@@ -5,14 +5,14 @@ set -u
 CONTAINER_NAME="techflow-app"
 RUNNING_CONTAINER=$(docker ps -q -f name="$CONTAINER_NAME")
 
-if [ -z "$CURRENT_CONTAINER" ]; then
+if [ -z "$RUNNING_CONTAINER" ]; then
     echo "No running container named ${CONTAINER_NAME}"
     exit 0
 fi
 
-CURRENT_IMAGE=$(docker inspect --format='{{.image}}' "$CONTAINER_NAME")
+CURRENT_IMAGE=$(docker inspect --format='{{.Image}}' "$CONTAINER_NAME")
 
-if [ -Z "$CURRENT_IMAGE" ] then
+if [ -z "$CURRENT_IMAGE" ] then
     echo "ERROR: Could not determine image for running container '$CONTAINER_NAME'."
     exit 1
 fi
