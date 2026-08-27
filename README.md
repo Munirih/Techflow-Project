@@ -48,4 +48,4 @@ Techflow-project/
 
 ## Live Application
 
-![live app](./Documentation/images/image-1.png)
+![live app](./Documentation/Images/image-1.png)
